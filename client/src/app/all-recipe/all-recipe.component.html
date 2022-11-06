@@ -1,0 +1,32 @@
+<form class="border">
+    <h5> <b> 🔎 filter the recipes</b></h5>
+    <div class="form-group">
+
+        <label for="exampleInputEmail1">recipe name</label>
+        <input name="name" [(ngModel)]="recName" (input)="filter()" type="text" class="form-control"
+            placeholder="filter by name">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">recipe preperation time</label>
+        <input name="time" type="number" class="form-control" placeholder="filter by Time" [(ngModel)]="recTime"
+            (input)="filter()">
+    </div>
+    <div class="form-check">
+        <label for="exampleInputPassword1">recipe category</label>
+
+        <select name="cat" class="custom-select" [(ngModel)]="recCategoryName" (change)="filter()">
+            <option>all categories</option>
+            <option *ngFor="let item of catArr">
+                {{item.categoryName}}
+            </option>
+        </select>
+
+    </div>
+</form>
+
+
+<div class="card-deck">
+    <div *ngFor="let item of filterArr">
+        <app-small-recipe [item]="item"></app-small-recipe>
+    </div>
+</div>

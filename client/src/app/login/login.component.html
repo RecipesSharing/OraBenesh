@@ -1,0 +1,25 @@
+
+<div class="border">
+<div class="row g-3 align-items-center" >
+    <div class="col-auto">
+      <label for="inputPassword6" class="col-form-label">user name</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" [(ngModel)]="name" >
+    </div>
+</div>
+
+
+<div class="row g-3 align-items-center">
+
+    <div class="col-auto">
+        <label for="inputPassword6" class="col-form-label">password</label>
+      </div>
+      <div class="col-auto">
+        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" [(ngModel)]="Password" >
+      </div>
+  </div>
+
+  <!-- <button value="log in" (click)="login()">log in</button> -->
+  <button type="button" class="btn btn-outline-dark" (click)="login()">log in</button>
+</div>

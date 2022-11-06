@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header">
+        <h1> {{recipe.recipeName}}</h1>
+    </div>
+    <div class="properties">
+        <h5> category:{{cat.categoryPath}} {{cat.categoryName}}</h5>
+        <h5>
+            preparation time:
+            {{recipe.recipePreparationTime|toTime}}
+        </h5>
+        <h5>
+            level:
+            {{level}}
+        </h5>
+    </div>
+    <div class="c">
+        <div class="card-body">
+            <img src={{myImg}} alt="">
+        </div>
+        <div class="card-body">
+            <h3><b>🛒 Ingredients:</b></h3>
+            <div *ngFor="let item of arrIngredients">
+                ◼ {{item}}
+            </div>
+        </div>
+        <div class="card-body">
+            <h3><b>📋 Preparations:</b></h3>
+            <div *ngFor="let item of arrPreparations; let i=index">
+                <b>{{i+1}}.</b> {{item}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-footer text-muted">
+    <h5>Added on: {{recipe.recipeAddDate|date: 'dd/MM/yyyy  h:mm a'}}</h5>
+    <button class="btn btn-outline-dark" *ngIf="user&& recipe.recipeUserCode==user.userCode"
+        (click)="delelteRecipe()">delete recipe</button>
+
+</div>

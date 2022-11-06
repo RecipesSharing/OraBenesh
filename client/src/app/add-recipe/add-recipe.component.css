@@ -1,0 +1,21 @@
+.border{
+    border: 20px thick;
+   text-align: center;
+   margin: 30vw;
+   margin-top: 10vh;
+   padding: 3vw;
+   justify-content: center;
+}
+.border>div>div{
+    margin:13px;
+    justify-content: center;
+
+}
+
+.border>button{
+    margin:20px;
+    margin-bottom: 0vh;
+}
+.i{
+    width: 90%;
+}

@@ -1,0 +1,80 @@
+<div class="border">
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">recipe name</label></div>
+        <input class="form-control" type="text" [(ngModel)]="newRecipe.recipeName" />
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">recipe category</label></div>
+        <select class="custom-select" [(ngModel)]="newRecipe.categoryCode">
+            <option class="form-control" *ngFor="let cat of categoryArr" [ngValue]="cat.categoryCode">
+                {{cat.categoryName}}
+            </option>
+        </select>
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">recipe Preparation Time</label></div>
+        <input class="form-control" type="number" [(ngModel)]="newRecipe.recipePreparationTime" />
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">level</label></div>
+        <select class="custom-select" [(ngModel)]="newRecipe.level">
+            <option class="form-control" *ngFor="let item of levels" [ngValue]="item">{{item}}</option>
+        </select>
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">recipe Add Date</label></div>
+        <p class="form-control" >{{newRecipe.recipeAddDate|date: 'dd/MM/yyyy  h:mm a'}}</p>
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">recipe Ingredients</label></div>
+        <div class="i" *ngFor="let item of recipeIngredient; let i=index">
+            <input class="form-control" type="text" [(ngModel)]="recipeIngredient[i]['ing']"
+                (input)="addIngredient()" />
+        </div>
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"><label class="col-form-label">recipe Preparation</label></div>
+        <div class="i" *ngFor="let item of recipePreparation; let i=index">
+            <input class="form-control" type="text" [(ngModel)]="recipePreparation[i]['pre']"
+                (input)="addprepartion()" />
+        </div>
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">recipe User Code: </label></div>
+        <p dis class="form-control">{{newRecipe.recipeUserCode}} </p>
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-auto"> <label class="col-form-label">recipe image</label></div>
+        <select class="custom-select" [(ngModel)]="newRecipe.recipeImage">
+            <option class="form-control" *ngFor="let i of imagesArr" [ngValue]="i['src']">{{i['name']}}</option>
+        </select>
+    </div>
+
+    <!-- <div>
+        img
+        <input id="selectedFile" style="display: none;" type="file" (change)="chooseImage($event)"
+        accept=".png,.jpg,.jpeg" />
+        <input type="button" value="Browse.." onclick="document.getElementById('selectedFile').click();" />
+    </div>
+     -->
+
+
+    <button class="btn btn-outline-dark" (click)="addRecipe()" value="add recipe">add recipe</button>
+</div>

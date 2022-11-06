@@ -1,0 +1,17 @@
+
+<div class="card" >
+    <img (click)="recipeDetails()" class="card-img-top" src={{myImg}} alt="Card image cap">
+    <div class="card-body">
+        <h2 class="card-title"> {{item.recipeName}}</h2>
+        <p class="card-text">
+            preparation time:
+           <b>{{item.recipePreparationTime|toTime}}</b> 
+        </p>
+        <p class="card-text">
+         {{setLevel()}}
+         level:
+            {{level}}
+        </p>
+        <a (click)="recipeDetails()" class="btn btn-secondary">watch details</a>
+    </div>
+</div>
